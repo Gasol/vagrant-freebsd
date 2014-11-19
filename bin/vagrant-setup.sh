@@ -55,6 +55,16 @@ chown vagrant:vagrant /home/vagrant/.ssh
 fetch -o /home/vagrant/.ssh/authorized_keys $VAGRANT_PRIVATE_KEY
 chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
 
+# Mappings for meta-arrow keys for word moving
+cat <<EOF > /home/vagrant/.inputrc
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+EOF
+
 # make.conf
 fetch -o /etc/make.conf $MAKE_CONF
 
